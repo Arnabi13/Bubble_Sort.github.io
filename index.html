@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bubble Sort</title>
+        <script>
+            function BS(array){
+                var swapped;
+                do {
+                  swapped = false;
+                  for (var i = 0; i < array.length - 1; i++) {
+                    if (array[i] > array[i + 1]) {
+                      var temp = array[i];
+                      array[i] = array[i + 1];
+                      array[i + 1] = temp;
+                      swapped = true;
+                    }
+                  }
+                } while (swapped);
+            }
+            function createSortedArray(){
+                var list = document.getElementById("outputnumber").innerText.split(",").map(Number);
+                BS(list);
+                document.getElementById("outputnumber").innerText = list;
+            }
+            function createList(){    
+                var number = prompt("Enter a maximum of 10 numbers[Seperated by a comma]");
+                document.getElementById("outputnumber").innerText = number;
+            }
+            
+        </script>    
+    </head>    
+    <body style="background-color:rgb(200, 200, 200);">
+        <br><br><br><br>
+        <center>
+            <h1>BUBBLE SORT</h1>
+            <hr width="60%">
+            <h3>Let initially the numbers be:</h3>
+            <p id ="outputnumber" font-size: 30px;><b>0,0,0,0,0</b></p>
+            <button onclick="createList();" id="display">Input Numbers</button>
+            <button onclick="createSortedArray()" id = "bubble">Bubble sort!</button>
+        </center>
+    </body>
+
+</html>
